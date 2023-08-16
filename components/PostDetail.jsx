@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from 'next/image';
 import moment from 'moment';
 
 const PostDetail = ({ post }) => {
@@ -51,13 +51,14 @@ const PostDetail = ({ post }) => {
         <div className="px-4 lg:px-0">
           <div className="flex items-center mb-8 w-full border-b pb-6 border-black">
             <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 items-center">
-              {post.author.photo && <img
+              <Image
+                unoptimized
                 alt={post.author.name}
-                height="30px"
-                width="30px"
-                className="align-middle rounded-full"
+                height={30}
+                width={30}
+                className="align-middle drop-shadow-lg rounded-full"
                 src={post.author.photo.url}
-              />}
+              />
               <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
             </div>
             <div className="font-medium text-gray-700">
