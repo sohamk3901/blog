@@ -78,7 +78,7 @@ const CommentsForm = ({ slug }) => {
     <div className="bg-cyan-200 shadow-lg rounded-lg p-8 pb-12 mb-8">
       <h3 className="text-xl mb-8 font-semibold border-b pb-4 border-black">Leave a Comment</h3>
       <div className="grid grid-cols-1 gap-4 mb-4 border rounded border-black">
-        <textarea value={formData.comment} onChange={onInputChange} className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" name="comment" placeholder="Comment" />
+        <textarea value={formData.comment || ''} onChange={onInputChange} className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" name="comment" placeholder="Comment" />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
         <input type="text" value={formData.name} onChange={onInputChange} className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700 border rounded-full border-black" placeholder="Name" name="name" />
