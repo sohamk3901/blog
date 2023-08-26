@@ -39,8 +39,6 @@ const PostDetail = ({ post }) => {
               src={obj.src}
             />
             <br></br>
-            <em className='text-white' key={index}>{obj.title}</em>
-            <br></br>
           </center>
         );
       default:
