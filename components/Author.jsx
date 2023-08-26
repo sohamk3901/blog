@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Author = ( {author }) => {
   return (
-    <div className=' mt-20 mb-8 p-12 relative rounded-lg bg-cyan-800 bg-opacity-70 items-center'>
+    <div className=' mt-20 mb-8 p-12 relative rounded-lg bg-indigo-950  items-center'>
       <div className='absolute left-10 right-0 -top-14'>
          <Image
               alt={author.name}
