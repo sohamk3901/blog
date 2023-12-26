@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
 
     <Layout>
       <Head>
-        <title>stellar insights</title>
+        <title>Stellar Insights</title>
       </Head>
       <Component {...pageProps} />
     </Layout>

@@ -14,12 +14,12 @@ const qwitcher_grypen = Qwitcher_Grypen({
 const Footer = () => {
 
   return (
-    <div className='w-full bg-black'> 
+    <div className='w-full bg-slate-100'> 
       <div className='container mx-auto'>
-        <div className='flex w-full mx-auto px-8 inline-block border-white py-10 justify-center items-center mb-0'>
+        <div className='flex w-full mx-auto px-8 inline-block border-slate-900 py-10 justify-center items-center mb-0'>
             <div className='md:float-left block'>
                 <Link href='/'>
-                    <span className={`${qwitcher_grypen.className} cursor-pointer font-bold text-6xl text-white `}>
+                    <span className={`${qwitcher_grypen.className} cursor-pointer font-bold text-6xl text-slate-950 `}>
                         Thank You!
                     </span>
                 </Link>
