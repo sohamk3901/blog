@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { LaunchCard, PostWidget, Categories } from '../../components';
+import { LaunchCard, PostWidget, Categories, Loader } from '../../components';
 import { getLaunches } from "../../services";
 import { Roboto } from 'next/font/google';
 

@@ -11,7 +11,7 @@ const LaunchCard = ({launch}) => {
       </div>
       <div className='pl-4 text-blue-800'>
         {launch.companies.map((category, index) => (
-            <span className={`text-slatee-950  block inline  pb-3 mb-3`}>{category.name}  . </span>
+            <span key={index} className={`text-slatee-950  block inline  pb-3 mb-3`}>{category.name}  . </span>
         ))}
         {launch.categories.map((category, index) => (
           <Link key={index} href={`/category/${category.slug}`}>
