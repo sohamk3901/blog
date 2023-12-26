@@ -39,6 +39,55 @@ export const getPosts = async () => {
   return result.postsConnection.edges;
 };
 
+export const getLaunches = async () => {
+  const query = gql`
+    query GetLaunches {
+      launchesConnection (where : {
+        launched: false
+      }) {
+        edges {
+          cursor
+          node {
+            categories {
+              name
+              slug
+            }
+            companies {
+              name
+              bio
+              id
+              logo {
+                url
+              }
+            }
+            featuredImage {
+              url
+            }
+            launcher {
+              bio
+              name
+              id
+              logo {
+                url
+              }
+            }
+            missionTitle
+            slug
+            dateAndTime
+            excerpt
+            launched
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.launchesConnection.edges;
+}
+
+
 export const getCategories = async () => {
   const query = gql`
     query GetCategories {
@@ -87,6 +136,41 @@ export const getPostDetails = async (slug) => {
 
   return result.post;
 };
+
+export const getLaunchDetails = async (slug) => {
+  const query = gql`
+    query GetLaunchDetails($slug : String!) {
+      launch(where: {slug: $slug}) {
+        missionTitle
+        excerpt
+        dateAndTime
+        launched
+        featuredImage {
+          url
+        }
+        slug
+        content {
+          raw
+        }
+        launcher {
+          bio
+          name
+          logo {
+            url
+          }
+        }
+        categories {
+          name
+          slug
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, {slug});
+  return result.launch;
+}
+
 
 export const getSimilarPosts = async (categories, slug) => {
   const query = gql`
@@ -254,3 +338,25 @@ export const getRecentPosts = async () => {
 
   return result.posts;
 };
+
+export const getUpcomingLaunches = async () => {
+  const query = gql`
+    query GetLaunchDetails() {
+      launches (
+        where: {
+          launched: false
+        }
+      ) {
+        missionTitle
+        dateAndTime
+        slug
+        featuredImage {
+          url
+        }
+      }
+    }
+  `
+  const result = await request(graphqlAPI, query);
+
+  return result.launches;
+}

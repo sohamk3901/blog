@@ -1,7 +1,6 @@
 import { FeaturedPosts } from '../sections/index';
-import { PostCard, Categories, PostWidget } from '../components';
+import { PostCard, Categories, PostWidget, LaunchWidget } from '../components';
 import { getPosts } from '../services';
-import { Second } from '../components';
  
 import { Roboto } from 'next/font/google';
 
@@ -23,7 +22,8 @@ export default function Home({ posts }) {
           </div>
           <div className="lg:col-span-4 col-span-1">
             <div className="lg:sticky relative top-8">
-              <PostWidget />
+              <LaunchWidget />
+
               <Categories />
             </div>
           </div>

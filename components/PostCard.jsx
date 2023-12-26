@@ -5,17 +5,24 @@ import Image from 'next/image';
 
 const PostCard = ({post}) => {
   return (
-    <div className='bg-black shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8'>
-      <div className="relative overflow-hidden shadow-md pb-80 mb-6 ">
+    <div className='bg-slate-100 shadow-lg rounded-lg p-4 lg:p-8 pb-12 mb-8'>
+      <div className="relative overflow-hidden shadow-md pt-5 pb-80 mb-6 ">
         <img src={post.featuredImage.url} height={post.featuredImage.height} alt="" className="object-top absolute h-auto w-full object-cover border-white shadow-lg rounded-t-lg lg:rounded-lg" />
       </div>
-      <h1 className='transition duration-700 text-center text-white mb-8 cursor-pointer hover:text-amber-400 text-3xl font-semibold'>
+      <div className='pl-4 text-blue-800'>
+        {post.categories.map((category, index) => (
+          <Link key={index} href={`/category/${category.slug}`}>
+            <span className={`cursor-pointer text-slatee-950  block  pb-3 mb-3`}>{category.name}  . </span>
+          </Link>
+        ))}
+      </div>
+      <h1 className='transition duration-700 text pl-4 text-slate-950 mb-8 cursor-pointer hover:text-amber-800 text-3xl font-semibold'>
           <Link href={`/post/${post.slug}`}>
             {post.title}
           </Link>
       </h1>
-      <div className='block lg:flex text-center items-center  justify-center mb-8 w-full'>
-        <div className='flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8'>
+      <div className='block lg:flex text-center items-center pl-4 mb-8 w-full'>
+        <div className='flex  items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8'>
         <Image
           unoptimized
           alt={post.author.name}
@@ -24,16 +31,16 @@ const PostCard = ({post}) => {
           className="align-middle drop-shadow-lg rounded-full"
           src={post.author.photo.url}
         />
-            <p className="inline align-middle text-white ml-2 text-lg">{post.author.name}</p>
+            <p className="inline align-middle text-slate-950 pl-2 ml-2 text-lg">{post.author.name}</p>
         </div>
-        <div className="font-medium text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="font-medium text-slate-950 text-left">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 inline mr-2 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
           <span className="align-middle">{moment(post.createdAt).format('DD MMM, YYYY')}</span>
         </div>  
       </div>
-      <p className="text-center text-lg text-white font-normal px-4 lg:px-20 mb-8">
+      <p className=" text-lg text-slate-700 font-normal px-4 mb-8">
       {post.excerpt}
       </p>
       <div className="text-center">
