@@ -18,7 +18,7 @@ export default function Countdown({launches}) {
             <div className={`${roboto.className} container mx-auto px-10 my-8`}>
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     <div className="lg:col-span-8 col-span-1">
-                    {launches.slice(0).map((launch, index) => (
+                    {launches.slice(0).reverse().map((launch, index) => (
                     <LaunchCard key={index} launch={launch.node} />
                     ))}
                     </div>

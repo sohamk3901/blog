@@ -353,6 +353,10 @@ export const getUpcomingLaunches = async () => {
         featuredImage {
           url
         }
+        launcher {
+          name
+        }
+        launchVehicle
       }
     }
   `
