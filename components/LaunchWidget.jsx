@@ -20,7 +20,7 @@ const LaunchWidget = () => {
   return (
     <div className="shadow-lg rounded-lg p-8 pb-12 mb-8 bg-slate-100 ">
       <h3 className="text-xl text-slate-950 mb-8 font-semibold border-b pb-4 border-slate-900 ">Upcoming Launches</h3>
-      {upcomingLaunches.slice().length > 0 && upcomingLaunches.slice(0).filter((launch, index) => index < 4).map((launch, index) => (
+      {upcomingLaunches.slice().length > 0 && upcomingLaunches.slice(0).filter((launch, index) => index < 4).reverse().map((launch, index) => (
         <div key={index} className="flex items-center w-full mb-4">
           <div className="w-16 flex-none">
             <Image
@@ -33,7 +33,8 @@ const LaunchWidget = () => {
             />
           </div>
           <div className="flex-grow ml-4">
-            <p className="text-lime-800 font-xs">{moment(launch.dateAndTime).fromNow()} {launch.launched === false}</p>
+            <p className="text-lime-800 font-xs">{moment(launch.dateAndTime).fromNow()}</p>
+            <p className='text-blue-800 font-xs'>{launch.launcher.name} . {launch.launchVehicle}</p>
             <Link href={`/countdown/${launch.slug}`} className="text-md text-slate-950" key={index}>{launch.missionTitle}</Link>
           </div>
         </div>
