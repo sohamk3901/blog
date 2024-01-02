@@ -50,13 +50,13 @@ const Second = () => {
                 </Link>
                 {categories.map((category) => (
                     <Link key={category.slug} href={`/category/${category.slug}`}>
-                        <span className={`${Oswald_font.className} md:float-right align-middle text-slate-950 mx-2 md:mx-4 px-4 py-2 font-semibold cursor-pointer text-lg md:text-xl border-slate-900 ${active === category.name.toLowerCase() ? 'border-2' : 'border md:border-2'}`}>
+                        <span className={`${Oswald_font.className} hidden md:block md:float-right align-middle text-slate-950 mx-2 md:mx-4 px-4 py-2 font-semibold cursor-pointer text-lg md:text-xl border-slate-900 ${active === category.name.toLowerCase() ? 'border-2' : 'border md:border-2'}`}>
                             <u className={`no-underline`}>{category.name.toUpperCase()}</u>
                         </span>
                     </Link>
                 ))}
                 <Link href='/countdown'>
-                    <span className={`${Oswald_font.className} md:float-right align-middle text-slate-950  mx-4 px-4 py-2 font-semibold cursor-pointer text-lg md:text-xl border-slate-900 ${active === 'countdown' ? 'border-2' : 'border md:border-2'}`}>
+                    <span className={`${Oswald_font.className} md:float-right align-middle text-slate-950 mx-2 md:mx-4 px-4 py-2 font-semibold cursor-pointer text-lg md:text-xl  border-slate-900 ${active === 'blog' ? 'border-2' : 'border md:border-2'} `}>
                         COUNTDOWN
                     </span>
                 </Link>
