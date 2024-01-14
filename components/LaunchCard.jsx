@@ -7,7 +7,7 @@ const LaunchCard = ({launch}) => {
   return (
     <div className='bg-slate-100 shadow-lg rounded-lg p-4 lg:p-8 pb-12 mb-8'>
       <div className="relative overflow-hidden shadow-md pt-5 pb-80 mb-6 ">
-        <img src={launch.featuredImage.url} height={launch.featuredImage.height} alt="" className="object-top absolute h-auto w-full object-cover border-white shadow-lg rounded-t-lg lg:rounded-lg" />
+        <img src={launch.featuredImage.url} height={launch.featuredImage.height} alt="" className="object-top absolute h-auto  w-full object-cover border-white shadow-lg rounded-t-lg lg:rounded-lg" />
       </div>
       <div className='pl-4 text-blue-800'>
         {launch.companies && launch.companies.map((category, index) => (
