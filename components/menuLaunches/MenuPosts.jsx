@@ -7,7 +7,7 @@ const MenuPosts = ({ withImage, featuredPosts }) => {
   return (
     <div className={styles.items}>
       {featuredPosts && featuredPosts.slice(0).reverse().slice(0, 3).map((post, index) => (
-        <Link href={`/post/${post.slug}`} className={styles.item}>
+        <Link href={`/post/${post.slug}`} className={styles.item} key={index}>
           {withImage && (
             <div className={styles.imageContainer}>
               <Image src={post.featuredImage.url} alt="" fill className={styles.image} />
