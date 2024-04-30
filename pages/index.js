@@ -1,32 +1,48 @@
 import { FeaturedPosts } from '../sections/index';
 import { PostCard, Categories, PostWidget, LaunchWidget } from '../components';
 import { getPosts } from '../services';
- 
+import { getCategories } from '../services';
+import { useState, useEffect } from 'react';
+import Menu from '@/components/Menu/Menu';
+import Featured from '@/components/featured/Featured';
+import CardList from '@/components/cardList/cardList';
+import styles from './homepage.module.css'
 import { Roboto } from 'next/font/google';
-
+import { FeaturedPostCard } from '../components';
+import { getFeaturedPosts } from '../services';
+import CategoryList from '@/components/categoryList/CategoryList'
 const roboto = Roboto({
   weight: '400',
   subsets: ['latin'],
 })
 
 export default function Home({ posts }) {
+  // const page = parseInt(searchParams.page) || 1;
+  const [featuredPosts, setFeaturedPosts] = useState([]);
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const [categories, setCategories] = useState([]);
+  // const page = parseInt(searchParams.page)
+  useEffect(() => {
+    getCategories().then((newCategories) => {
+      setCategories(newCategories);
+    });
+  }, []);
+  useEffect(() => {
+    getFeaturedPosts().then((result) => {
+      setFeaturedPosts(result);
+      setDataLoaded(true);
+    });
+  }, []);
+
   return (
     <div>
       <div className={`${roboto.className} container mx-auto px-10 my-8`}>
-        <FeaturedPosts />
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-8 col-span-1">
-            {posts.slice(0).reverse().map((post, index) => (
-              <PostCard key={index} post={post.node} />
-            ))}
-          </div>
-          <div className="lg:col-span-4 col-span-1">
-            <div className="lg:sticky relative top-8">
-              <LaunchWidget />
-
-              <Categories />
-            </div>
-          </div>
+        {dataLoaded && <Featured post={featuredPosts.slice(0).reverse()[0]} />}
+        <CategoryList categories={categories}/>
+        <div className={styles.content}>
+          <CardList posts={posts}/>
+          {/* <CardList page={page}/> */}
+          {dataLoaded && <Menu categories={categories} featuredPosts={featuredPosts}/>}
         </div>
       </div>
     </div>

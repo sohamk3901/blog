@@ -1,0 +1,12 @@
+.container{
+    flex:5
+}
+  
+.title{
+  margin: 50px 0px;
+  text-transform: capitalize;
+  padding: 5px 10px;
+  padding-left: 0;
+  background-color: var(--bg);
+  color: var(--textColor)
+}

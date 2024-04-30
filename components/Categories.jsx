@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-
+import styles from './categoryList/categoryList.module.css'
 import { getCategories } from '../services';
 
 const Categories = () => {
