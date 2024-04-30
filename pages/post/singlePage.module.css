@@ -70,7 +70,12 @@
   line-height: 1.5;
   flex: 1;
 
+}
 
+.container {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--textColor);
 }
 
 @media screen and (max-width: 1536px) {
@@ -100,5 +105,18 @@
   .description h2{
     font-size: 36px;
   }
+
+  .textContainer {
+    max-width: 450px;
+  }
 }
 
+@media screen and (max-width: 472px) {
+  .textContainer {
+    max-width: 300px;
+  }
+
+  .image {
+    max-width: 350px;
+  }
+}

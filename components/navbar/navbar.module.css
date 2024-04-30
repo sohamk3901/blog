@@ -65,7 +65,7 @@
   }
 }
 @media screen and (max-width: 768px) {
-  .logo {
+  .bold {
     font-size: 24px;
   }
 }
@@ -75,5 +75,9 @@
   }
   .link {
     display: none;
+  }
+
+  .bold {
+    font-size: 20px;
   }
 }

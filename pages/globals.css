@@ -74,7 +74,11 @@
   @media screen and (max-width: 640px) {
     .wrapper {
       max-width: 475px;
-      padding-left: 10px;
+      padding-left: 20px;
+    }
+
+    .bold {
+      font-size: 15px;
     }
   }
 
