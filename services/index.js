@@ -278,6 +278,10 @@ export const getFeaturedPosts = async () => {
         featuredImage {
           url
         }
+        excerpt
+        categories {
+          name
+        }
         title
         slug
         createdAt
