@@ -40,7 +40,7 @@ const PostDetails = ({ post, params }) => {
         return (
           <center className='m-10'>
             <br></br>
-            <img
+            <Image
               key={index}
               alt={obj.title}
               height={obj.height}
